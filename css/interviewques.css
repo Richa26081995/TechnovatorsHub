@@ -1,0 +1,39 @@
+.interview_container{
+	border: 2px solid black;
+	width: 891px;
+    margin-left: 315px;
+    background-color: white;
+}
+
+.heading {
+    text-align: center;
+    border-bottom: 2px solid;
+    padding: 31px;
+    font-size: 24px;
+    font-family: cursive;
+    color: #d9223c;
+}
+
+.ques {
+    padding: 13px;
+    font-size: 20px;
+    font-style: bold;
+
+}
+
+.ans {
+   padding-left: 36px;
+    padding-bottom: 17px;
+    color: black;
+    font-size: 15px;
+}
+.pic>img{
+    width: 90px;
+    margin-top: -136px;
+    /* padding-left: 0px; */
+    margin-left: 145px;
+}
+.ans>pre{
+    font-size: 15px;
+    font-style: bold;
+}

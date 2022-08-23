@@ -1,0 +1,244 @@
+/**
+ * Base Variables
+ */
+$color-white: #fff;
+$color-lightgrey: #f9f9f9;
+$color-black: #000;
+
+$mq-xsmall: 22em;
+$mq-small: 32em;
+$mq-med: 54em;
+$mq-large: 65em;
+$mq-xlarge: 91em;
+
+$font: 'Poppins', sans-serif;
+
+/**
+ * Base Settings/Overwrite Normalize
+ */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 4em 1em;
+  font-family: $font;
+  font-size: 100%;
+  line-height: 1.6;
+  background-color: $color-lightgrey;
+
+  @media (min-width: $mq-xsmall) {
+    font-size: 102.5%;
+  }
+
+  @media (min-width: $mq-small) {
+    font-size: 105%;
+  }
+
+  @media (min-width: $mq-med) {
+    font-size: 107.5%;
+  }
+
+  @media (min-width: $mq-large) {
+    font-size: 110%;
+  }
+
+  @media (min-width: $mq-xlarge) {
+    font-size: 115%;
+  }
+}
+
+h1 {
+  margin: 0;
+}
+
+//---------------------------------------------- 
+//  Flex Grid - flex-grid()
+//  @description: Creates a flexbox grid
+//  @param:       $xs, $sm, $md, $lg, $xl: [null] - Media sizes
+//  @param:       $pad: [0] - Padding of child elements and negative margin of parent
+//----------------------------------------------
+@mixin flex-grid($xs, $sm, $md, $lg: null, $xl: null, $pad: 0) {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  margin-left: -$pad;
+  margin-right: -$pad;
+
+  & > * {
+    padding: $pad;
+    flex-basis: 100% / $xs;
+    max-width: 100% / $xs;
+    
+    @media (min-width: $mq-small) {
+      flex-basis: 100% / $sm;
+      max-width: 100% / $sm;
+    }
+
+    @media (min-width: $mq-med) {
+      flex-basis: 100% / $md;
+      max-width: 100% / $md;
+    }
+
+    @if $lg {
+      @media (min-width: $mq-large) {
+        flex-basis: 100% / $lg;
+        max-width: 100% / $lg;
+      }
+    }
+
+    @if $xl {
+      @media (min-width: $mq-xlarge) {
+        flex-basis: 100% / $xl;
+        max-width: 100% / $xl;
+      }
+    }
+  }
+}
+
+//---------------------------------------------- 
+//  Flex Grid Animation - flex-grid-animation()
+//  @description: Animation delay for flex grid
+//  @param:       $xs, $sm, $md, $lg, $xl: [null] - Media sizes
+//  @param:       $delay: [0.1s] - Animation delay of child elements
+//----------------------------------------------
+@mixin flex-grid-animation($xs, $sm, $md, $lg: null, $xl: null, $delay: 0.1s) {
+  
+  & > * {
+    $count: 1;
+    @while $count <= $xs {
+      &:nth-child(#{$xs}n + #{$count}) {
+        animation-delay: $delay * $count;
+      }
+      $count: $count + 1;
+    }
+      
+    @media (min-width: $mq-small) {
+      $count: 1;
+      @while $count <= $sm {
+        &:nth-child(#{$sm}n + #{$count}) {
+          animation-delay: $delay * $count;  
+        }
+        $count: $count + 1;
+      }
+    }
+
+    @media (min-width: $mq-med) {
+      $count: 1;
+      @while $count <= $md {
+        &:nth-child(#{$md}n + #{$count}) {
+          animation-delay: $delay * $count;  
+        }
+        $count: $count + 1;
+      }
+    }
+
+    @if $lg {
+      @media (min-width: $mq-large) {
+        $count: 1;
+        @while $count <= $lg {
+          &:nth-child(#{$lg}n + #{$count}) {
+            animation-delay: $delay * $count;  
+          }
+          $count: $count + 1;
+        }
+      }
+    }
+
+    @if $xl {
+      @media (min-width: $mq-xlarge) {
+        $count: 1;
+        @while $count <= $xl {
+          &:nth-child(#{$xl}n + #{$count}) {
+            animation-delay: $delay * $count;  
+          }
+          $count: $count + 1;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Extends
+ */
+%card-shadow {  
+  position: relative;
+
+  box-shadow: 0 1px 1px rgba($color-black, 0.1);
+  background-clip: padding-box;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1s ease;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-clip: padding-box;
+    box-shadow: 0 2px 50px rgba($color-black, 0.25);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover {
+    transform: translate3d(0, -0.5em, 0);
+    transition: transform 1s ease;
+
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+/**
+ * Components
+ */
+.grid {
+  max-width: 81em;
+  margin-right: auto;
+  margin-left: auto;
+  
+  @media (min-width: $mq-med) {
+    width: 80%;
+  }
+
+  @media (min-width: $mq-xlarge) {
+    width: 65%;
+  }
+}
+
+.flex-grid {
+  @include flex-grid(1, 2, 3, $xl: 4, $pad: 1em);
+  @include flex-grid-animation(1, 2, 3, $xl: 4, $delay: 0.2s);
+  
+  &__card {
+    animation-name: fade-in-up;
+  }
+  
+  &__container {
+    @extend %card-shadow;
+    
+    padding: 2em;
+    
+    text-align: center;
+    background-color: $color-white;
+  }
+}
+
+/**
+ * Animations
+ */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translate3d(0, 100%, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}

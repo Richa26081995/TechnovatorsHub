@@ -1,0 +1,182 @@
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 208px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+  float: left;
+}
+
+.sidebar a {
+  padding: 27px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #818181;
+    display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/*student dashboard design*/
+
+/* BASIC RESET */
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input{margin:0; padding:0;}
+
+/* HTML ELEMENTS */
+body { 
+  background-color:#deddcd;
+   font:14px/21px Arial,Helvetica,sans-serif;
+   }
+h1
+ {
+  font: bold 65px/60px Helvetica, Arial, Sans-serif;
+  text-align: center;
+   color: #eee;
+    text-shadow: 0px 2px 6px #333;
+     }
+h1 small{
+ font-size: 20px;
+  text-transform:uppercase;
+   letter-spacing: 14px;
+    display: block; 
+    color: #000;
+     }
+h2 a {
+ display: block;
+  text-decoration: none;
+   margin: 0 0 30px 0;
+    font: italic 45px Georgia, Times, Serif;
+      text-align: center;
+       color: #bfe1f1; 
+       text-shadow: 0px 2px 6px #333;
+        }
+h2 a:hover {
+ color: #90bcd0;
+  }
+
+/* COMMON CLASSES */
+.break { 
+  clear:both; 
+}
+
+/* WRAPPER */
+#wrapper {
+ width:960px; margin:40px auto;
+  }
+
+/* CONTENT */
+#content {
+margin-left: 176px;
+
+ }
+#content .info {
+ padding:10px;
+  }
+
+/* education POSTERS */
+#eduposters {
+ list-style:none;
+  margin:100px 0;
+   height:550px; 
+ }
+#eduposters li {
+ display:inline; 
+ float:left;
+  -webkit-perspective: 500;
+   -webkit-transform-style: preserve-3d;edu
+  -webkit-transition-property: perspective;
+   -webkit-transition-duration: 0.5s; 
+ }
+#eduposters li:hover {
+ -webkit-perspective: 5000; 
+}
+  
+#eduposters li img {
+ border:10px solid #fcfafa;
+  -webkit-transform: rotateY(30deg);
+  -moz-box-shadow:0 3px 10px #888;
+   -webkit-box-shadow:0 3px 10px #888;
+  -webkit-transition-property: transform;
+   -webkit-transition-duration: 0.5s;
+    }
+#eduposters li:hover img
+ { 
+  -webkit-transform: rotateY(0deg); 
+}
+
+.eduinfo { 
+  border:10px solid #fcfafa;
+   padding:20px; width:200px;
+    height:287px;
+     background-color:#deddcd;
+      margin:-195px 0 0 55px;
+       position:absolute;
+  -moz-box-shadow:0 20px 40px #888;
+   -webkit-box-shadow:0 20px 40px #888;
+  -webkit-transform: translateZ(30px) rotateY(30deg);
+  -webkit-transition-property: transform, box-shadow, margin; 
+  -webkit-transition-duration: 0.5s; }
+  
+#eduposters li:hover .eduinfo {
+ -webkit-transform: rotateY(0deg);
+  -webkit-box-shadow:0 5px 10px #888;edu
+   margin:-175px 0 0 30px; 
+ }
+  
+.eduinfo h3 { 
+  color:#7a3f3a;
+   font-variant: small-caps;
+    font-family:Georgia,serif,Times;
+     text-align:center;
+      }
+.eduinfo p {
+ padding-bottom:15px;
+  }
+.eduinfo a {
+ background-color:#7a3f3a;
+  padding:5px 10px; color:#eee;
+   text-decoration:none; 
+   display:block;
+    width:80px !important;
+     text-align:center;
+      margin:0 auto;
+  -moz-border-radius:5px;
+   -webkit-border-radius:5px;
+    }
+.eduinfo a:hover, .eduinfo a:focus {
+ background-color:#6a191f; color:#fff;
+  }
+
+  ul>li>img{
+    width: 350px;
+    height: 400px;
+  }
+
+  .Welcome_msg{
+    color: white;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 21px;
+  }
+
+  .logout{
+    margin-left: 30px;
+  }
